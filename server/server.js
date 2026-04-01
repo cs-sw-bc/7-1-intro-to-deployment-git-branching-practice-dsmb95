@@ -72,7 +72,7 @@ const reviews = {
   ],
 };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 app.get("/api/books", (req, res) => {
   res.json(books);
@@ -85,7 +85,7 @@ app.get("/api/books/:id", (req, res) => {
 });
 
 app.get("/api/books/:id/reviews", async (req, res) => {
-  await sleep(3000);
+  // await sleep(3000);
   const bookReviews = reviews[parseInt(req.params.id)] || [];
   res.json(bookReviews);
 });
@@ -99,5 +99,5 @@ app.post("/api/books/:id/reviews", (req, res) => {
   res.status(201).json(newReview);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
